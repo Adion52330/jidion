@@ -91,6 +91,7 @@
         <p>
           &copy; Copyright ScammerWebsite | Created and Designed by
           <a href="adion.netlify.app">ADION</a>
+          <span style="padding-left: 30px;" id="kk"></span>
         </p>
       </div>
     </footer>
@@ -98,5 +99,17 @@
   <script>
     var vid = document.getElementById("myVideo");
 vid.volume = 0.2;
+  </script>
+  <script>
+    const countEl = document.getElementById("kk");
+    updateVisitCount();
+
+    function updateVisitCount() {
+      fetch("https://api.countapi.xyz/update/jidion/jidi/?amount=1")
+        .then((res) => res.json())
+        .then((res) => {
+          countEl.innerHTML = res.value;
+        });
+    }
   </script>
 </html>
